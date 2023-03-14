@@ -129,3 +129,11 @@ body {
   cursor: pointer;
   font-size: 48px;
 }
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
