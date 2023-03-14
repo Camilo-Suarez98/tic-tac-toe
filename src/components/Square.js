@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const Square = ({ children, updateBoard, index }) => {
+export const Square = ({ children, className, updateBoard, index }) => {
   return (
-    <div>
+    <div onClick={updateBoard} className={className}>
       {children}
     </div>
   )
