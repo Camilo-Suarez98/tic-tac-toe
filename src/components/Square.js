@@ -1,8 +1,15 @@
 import React from 'react'
 
 export const Square = ({ children, className, updateBoard, index }) => {
+  const handleClick = () => {
+    updateBoard(index)
+  }
+
   return (
-    <div onClick={updateBoard} className={className}>
+    <div
+      onClick={handleClick}
+      className={className}
+    >
       {children}
     </div>
   )
