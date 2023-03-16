@@ -33,8 +33,12 @@ body {
 
 .board {
   width: fit-content;
-  margin: 40px auto;
+  height: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .board h1 {
@@ -143,5 +147,5 @@ body {
 }
 
 .is-winner {
-  font-size: 20px;
+  font-size: 30px;
 }
