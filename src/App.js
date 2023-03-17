@@ -45,6 +45,12 @@ function App() {
     updateBoard()
   }
 
+  const noWinner = () => {
+    const notWinner = Array(9).fill(null)
+    setBoard(notWinner)
+    setTurn(TURNS.X)
+  }
+
   return (
     <div className="App board">
       <h1>Tic Tac Toe</h1>
@@ -74,6 +80,9 @@ function App() {
             <Square className={turn === TURNS.X ? 'square block' : 'hide'}>{TURNS.X}</Square>
             <Square className={turn === TURNS.O ? 'square block' : 'hide'}>{TURNS.O}</Square>
           </>
+        }
+        {!winner &&
+          <button onClick={noWinner}>Restart</button>
         }
       </section>
     </div>
