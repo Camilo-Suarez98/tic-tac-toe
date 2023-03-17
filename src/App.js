@@ -37,6 +37,11 @@ function App() {
     }
   }
 
+  const resetBoard = () => {
+    setBoard(Array(9).fill(null))
+    updateBoard()
+  }
+
   return (
     <div className="App board">
       <h1>Tic Tac Toe</h1>
@@ -56,8 +61,11 @@ function App() {
       </section>
 
       <section className="turn">
-        {winner ? 
-          <p className="is-winner">The winner is: <strong> {winner} </strong></p> :
+        {winner ?
+          <>
+            <p className="is-winner">The winner is: <strong> {winner} </strong></p>
+            <button onClick={resetBoard}>Restart</button>
+          </> :
           <>
             <p className="is-winner">The next turn is for: </p>
             <Square className={turn === TURNS.X ? 'square block' : 'hide'}>{TURNS.X}</Square>
