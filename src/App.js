@@ -42,13 +42,6 @@ function App() {
     setBoard(restart)
     setWinner(null)
     setTurn(TURNS.X)
-    updateBoard()
-  }
-
-  const noWinner = () => {
-    const notWinner = Array(9).fill(null)
-    setBoard(notWinner)
-    setTurn(TURNS.X)
   }
 
   return (
@@ -70,19 +63,22 @@ function App() {
       </section>
 
       <section className="turn">
-        {winner ?
-          <>
-            <p className="is-winner">The winner is: {winner}</p>
-            <button onClick={resetBoard}>Play again</button>
-          </> :
-          <>
-            <p className="is-winner">The turn is for: {turn}</p>
-            <Square className={turn === TURNS.X ? 'square block' : 'hide'}>{TURNS.X}</Square>
-            <Square className={turn === TURNS.O ? 'square block' : 'hide'}>{TURNS.O}</Square>
-          </>
+        {
+          winner ?
+            <>
+              <p className="is-winner">The winner is: {winner}</p>
+              <button onClick={resetBoard}>Play again</button>
+            </> :
+            <>
+              <p className="is-winner">The turn is for: {turn}</p>
+              <Square className={turn === TURNS.X ? 'square block' : 'hide'}>{TURNS.X}</Square>
+              <Square className={turn === TURNS.O ? 'square block' : 'hide'}>{TURNS.O}</Square>
+            </>
         }
-        {!winner &&
-          <button onClick={noWinner}>Restart</button>
+        {
+          !winner && (
+            <button onClick={resetBoard}>Restart</button>
+          )
         }
       </section>
     </div>
